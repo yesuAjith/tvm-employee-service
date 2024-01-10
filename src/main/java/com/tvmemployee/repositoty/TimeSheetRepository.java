@@ -2,6 +2,7 @@ package com.tvmemployee.repositoty;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,7 +31,7 @@ public interface TimeSheetRepository extends JpaRepository<EmployeeLoginInfo, In
 	public List<EmployeeLoginInfo>getLoginInfoID(Integer loginid);
 	
 	 @Query(value = "SELECT * FROM employee_login_info eli INNER JOIN employee_logof_info elo ON eli.emp_id = elo.employee_id WHERE eli.emp_id = ?1", nativeQuery = true)
-	 List<Object[]>findLoginAndLogoutInfoByEmployeeId(Integer emp_id);
+	 public List<Map<String, Object>>findLoginAndLogoutInfoByEmployeeId(Integer emp_id);
 	 
 	 
 }

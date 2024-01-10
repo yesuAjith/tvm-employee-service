@@ -64,11 +64,11 @@ public class EmployeeService {
 		return empRepos.getByLoginInfo(empid);
 	}
 	
-	public List<Object[]>getByNameWithLogin(String empName){
+	public List<Map<String, Object>> getByNameWithLogin(String empName){
 		return empRepos.getByNameLoginDetails(empName);
 	}
 
-	public List<Object[]>getWithDate(Date da){
+	public List<Map<String, Object>> getWithDate(Date da){
 		return empRepos.getByLoginDetailsWithDate(da);
 	}
 	
@@ -87,7 +87,7 @@ public class EmployeeService {
 		return empRepos.save(updateEmployee);
 	}
 	
-	public List<Object[]>getByEmpIdLoginInfo(Integer id){
+	public List<Map<String, Object>> getByEmpIdLoginInfo(Integer id){
 		return empRepos.getByLoginDetailsWithEmpId(id);
 	}
 }

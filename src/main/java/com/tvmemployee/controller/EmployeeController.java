@@ -79,12 +79,12 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/getBynameLogin/{employeefirstname}")
-	public List<Object[]>getEmployeeNameWithInfoLogin(@PathVariable("employeefirstname") String empf){
+	public List<Map<String, Object>> getEmployeeNameWithInfoLogin(@PathVariable("employeefirstname") String empf){
 		return empservice.getByNameWithLogin(empf);
 	}
 	
 	@GetMapping("/getByDateLogin/{date}")
-	public List<Object[]>getByDateLogin(@PathVariable("date")@DateTimeFormat(pattern = "yyyy-MM-dd")  Date loginDate){
+	public List<Map<String, Object>> getByDateLogin(@PathVariable("date")@DateTimeFormat(pattern = "yyyy-MM-dd")  Date loginDate){
 		return empservice.getWithDate(loginDate);
 	}
 	
@@ -95,7 +95,7 @@ public class EmployeeController {
 	
 	
 	@GetMapping("/getbyLoginEmId/{id}")
-	public List<Object[]>getLoginInfoByEmpId(@PathVariable("id") Integer id){
+	public List<Map<String, Object>>getLoginInfoByEmpId(@PathVariable("id") Integer id){
 		return empservice.getByEmpIdLoginInfo(id);
 	}
 	

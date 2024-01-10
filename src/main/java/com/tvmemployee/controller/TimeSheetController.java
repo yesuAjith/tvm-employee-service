@@ -2,6 +2,7 @@ package com.tvmemployee.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +75,7 @@ public class TimeSheetController {
 	}
 	
 	@GetMapping("/getEmpId/{id}")
-	public List<Object[]>getByLoginInfo(@PathVariable("id") Integer id){
+	public List<Map<String, Object>> getByLoginInfo(@PathVariable("id") Integer id){
 		return timesheetService.getByloginUser(id);
 	}
 	   

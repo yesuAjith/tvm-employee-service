@@ -1,6 +1,7 @@
 package com.tvmemployee.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,7 @@ public class TimeSheetService {
 	   return logoutRepo.findById(id);
    }
    
-   public List<Object[]>getByloginUser(Integer id){
+   public List<Map<String, Object>> getByloginUser(Integer id){
 	   return timeSheet.findLoginAndLogoutInfoByEmployeeId(id);
    }
    
