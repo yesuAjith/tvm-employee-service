@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,11 +59,11 @@ public class TimeSheetController {
 	public List<EmployeeLoginInfo> getByLogInfo(@PathVariable("id") Integer id){
 		return timesheetService.getByLogOut(id);
 	}
-////	
-//	@GetMapping("/getempdate/{date}")
-//	public List<EmployeeLoginInfo> getByLogDate(@PathVariable("date") Date date) {
-//		return timesheetService.getByDate(date);
-//	}
+//	
+	@GetMapping("/getempdate/{date}")
+	public List<Map<String, Object>> getByLogDate(@PathVariable("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+		return timesheetService.getbyLogindateInfo(date);
+	}
 	
 	@GetMapping("/getempIdLogout/{id}")
 	public List<Object[]>getLogoutWithEmployee(@PathVariable("id") Integer id){
@@ -74,7 +75,7 @@ public class TimeSheetController {
 		return timesheetService.getByIdWithLogout(id);
 	}
 	
-	@GetMapping("/getEmpId/{id}")
+	@GetMapping("/ /{id}")
 	public List<Map<String, Object>> getByLoginInfo(@PathVariable("id") Integer id){
 		return timesheetService.getByloginUser(id);
 	}

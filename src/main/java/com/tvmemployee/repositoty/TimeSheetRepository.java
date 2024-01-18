@@ -30,8 +30,13 @@ public interface TimeSheetRepository extends JpaRepository<EmployeeLoginInfo, In
 			+ "WHERE el.loginid=:loginid", nativeQuery = true)
 	public List<EmployeeLoginInfo>getLoginInfoID(Integer loginid);
 	
-	 @Query(value = "SELECT * FROM employee_login_info eli INNER JOIN employee_logof_info elo ON eli.emp_id = elo.employee_id WHERE eli.emp_id = ?1", nativeQuery = true)
+	 @Query(value = "SELECT * FROM employee_login_info eli INNER JOIN employee_logof_info elo "
+	 		+ "ON eli.emp_id = elo.employee_id WHERE eli.emp_id = ?1", nativeQuery = true)
 	 public List<Map<String, Object>>findLoginAndLogoutInfoByEmployeeId(Integer emp_id);
+	 
+	 @Query(value = "SELECT * FROM employee_login_info eli INNER JOIN employee_logof_info elo "
+		 		+ "ON eli.emp_id = elo.employee_id WHERE eli.date = ?1", nativeQuery = true)
+		 public List<Map<String, Object>>findLoginAndLogoutInfoByDate(Date date);
 	 
 	 
 }

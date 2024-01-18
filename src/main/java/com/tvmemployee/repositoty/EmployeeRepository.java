@@ -58,12 +58,13 @@ public interface EmployeeRepository extends JpaRepository<TvmEmployee, Integer>{
 			+ "WHERE te.employeefirstname=:employeefirstname", nativeQuery = true)
 	public List<Map<String, Object>> getByNameLoginDetails(String employeefirstname);
 	
-	@Query(value="SELECT te.employee id,te.employeefirstname,te.employeelastname,"
-			+ "te.employeesalary,te.employeeemail,te.employeephone,el.loginid,el.date,"
-			+ "el.time,elo.logoutid,elo.logoutdate,elo.logouttime FROM tvm_employee te"
-			+ " LEFT JOIN employee_login_info el ON te.employeeid=el.emp_id "
-			+ "LEFT JOIN employee_logof_info elo ON te.employeeid=elo.employee_id "
-			+ "WHERE el.date=:date", nativeQuery = true)
+	@Query(value = "SELECT te.employeeid, te.employeefirstname, te.employeelastname, "
+	        + "te.employeesalary, te.employeeemail, te.employeephone, el.loginid, el.date, "
+	        + "el.time, elo.logoutid, elo.logoutdate, elo.logouttime "
+	        + "FROM tvm_employee te "
+	        + "LEFT JOIN employee_login_info el ON te.employeeid = el.emp_id "
+	        + "LEFT JOIN employee_logof_info elo ON te.employeeid = elo.employee_id "
+	        + "WHERE el.date = :date", nativeQuery = true)
 	public List<Map<String, Object>>getByLoginDetailsWithDate(Date date);
 	
 	@Query(value="SELECT te.employeeid,te.employeefirstname,te.employeelastname,"

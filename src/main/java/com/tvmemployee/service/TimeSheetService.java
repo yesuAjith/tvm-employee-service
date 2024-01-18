@@ -1,5 +1,6 @@
 package com.tvmemployee.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -59,4 +60,7 @@ public class TimeSheetService {
 	   return timeSheet.findLoginAndLogoutInfoByEmployeeId(id);
    }
    
+   public List<Map<String, Object>>getbyLogindateInfo(Date da){
+	   return timeSheet.findLoginAndLogoutInfoByDate(da);
+   }
 }
